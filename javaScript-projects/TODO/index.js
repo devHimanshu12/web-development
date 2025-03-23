@@ -3,7 +3,7 @@ const todoInputs = []
 function handleInput(){
     const inputElem = document.getElementById("input-box")
     todoInputs.push(inputElem.value)
-    // inputElem.value = ''
+    inputElem.value = ''
     createList(todoInputs)
     console.log(todoInputs)
 }
@@ -12,28 +12,28 @@ function createList(todoInputs){
     console.log('create list',todoInputs)
     const listContainer = document.getElementById('todo-list-container');
     const ul = document.createElement('ul');
+    const li = document.createElement('li')
+    const span = document.createElement('span')
+    const del = document.createElement('delete')
+    li.classList.add('list-item')
+    del.classList.add('delete-btn')
     for(let i =0; i<todoInputs.length;i++){
-        const li = document.createElement('li')
-        li.classList.add('list-item')
-        const span = document.createElement('span')
-        const del = document.createElement('delete')
-        del.classList.add('delete-btn')
-        del.innerText = 'Delete'
         span.innerText = todoInputs[i]
-        del.addEventListener('click',handleDelete)
+        del.innerText = 'Delete'
         li.appendChild(span)
         li.appendChild(del)
+        del.addEventListener('click',function(){
+            ul.removeChild(li)
+        })
         ul.append(li)
     }
     listContainer.append(ul)
 }
 
 
-function handleDelete(index){
-    console.log('delete',todoInputs)
-    todoInputs.splice(index,1)
-    createList(todoInputs)
-}
+// function handleDelete(element){
+//    createList(todoInputs)
+// }
 
 // function addItem(){
 //     let list = document.getElementById("text").value
