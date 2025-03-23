@@ -1,0 +1,23 @@
+#add-btn{
+    padding: 4px 8px;
+    background-color: green;
+    border: none;
+    border-radius: 4px;
+}
+
+#input-box{
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+
+.list-item{
+    margin: 4px 12px;
+}
+
+.delete-btn{
+    margin: 4px 12px;
+    padding: 4px 8px;
+    background-color: red;
+    border: none;
+    border-radius: 4px;
+}
