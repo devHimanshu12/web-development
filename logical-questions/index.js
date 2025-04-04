@@ -19,6 +19,9 @@ function sumOfContinuousSubArray(array,k){
 
 console.log(sumOfContinuousSubArray(arr,3))
 
+
+// find the second maximum in an array
+
 function secondMaximum(array){
     let max = 0;
     let secMax = 0;
@@ -35,3 +38,20 @@ function secondMaximum(array){
 }
 
 console.log(secondMaximum(arr))
+
+// find the two number sum of target in an array
+function twoNumberTargetSum(input,target){
+    for(let i=0; i<input.length; i++){
+        const firstNum = input[i];
+        for(let j = i+1;j<input.length;j++){
+            const secNum = input[j]
+            if(firstNum + secNum === target){
+                return [firstNum,secNum]
+            }
+        }
+    }
+    return null
+}
+
+console.log(twoNumberTargetSum(arr,98))
+
