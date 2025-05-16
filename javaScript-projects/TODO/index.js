@@ -57,3 +57,14 @@ function createList(todoInputs){
 //       })
 //     }
 // }
+
+function addAttribute(){
+    const elements = document.getElementsByClassName('section')
+    for(node of elements){
+        if(node.onclick){
+            node.setAttribute('dcpIportal','')
+        }
+    }
+}
+
+addAttribute()

@@ -17,7 +17,7 @@ function sumOfContinuousSubArray(array,k){
     return kSum
 }
 
-console.log(sumOfContinuousSubArray(arr,3))
+// console.log(sumOfContinuousSubArray(arr,3))
 
 
 // find the second maximum in an array
@@ -37,7 +37,7 @@ function secondMaximum(array){
     return secMax
 }
 
-console.log(secondMaximum(arr))
+// console.log(secondMaximum(arr))
 
 // find the two number sum of target in an array
 // O(n2)
@@ -55,7 +55,7 @@ function twoNumberTargetSum(input,target){
     return null
 }
 
-console.log(twoNumberTargetSum(arr,98))
+// console.log(twoNumberTargetSum(arr,98))
 
 // optimized
 // O(n)
@@ -74,7 +74,7 @@ function twoNumTargetSum(input,target){
     return []
 }
 
-console.log(twoNumTargetSum(arr,21))
+// console.log(twoNumTargetSum(arr,21))
 
 
 // bubble sort
@@ -96,7 +96,7 @@ function sortFn(input){
     return input
 }
 
-console.log('sorted func',sortFn(unsortedArr))
+// console.log('sorted func',sortFn(unsortedArr))
 
 // swap two number without using third variable
 
@@ -105,7 +105,7 @@ function swap(a,b){
     return [a,b]
 }
 
-console.log(swap(5,6))
+// console.log(swap(5,6))
 
 // find the interection of two array 
 
@@ -122,14 +122,14 @@ function interection(input1,input2){
     return intersectArr
 }
 
-console.log(interection(iArr,iArr2))
+// console.log(interection(iArr,iArr2))
 
 const a = new Set(iArr)
 const b = new Set(iArr2)
 
 const interArr = [...a].filter(item=> b.has(item))
 
-console.log(a,b,[...a],interArr)
+// console.log(a,b,[...a],interArr)
 
 // remove duplicate from string using SET
 
@@ -137,7 +137,102 @@ const str = "abdk ckdjkab"
 
 const newStr = new Set(str)
 const uni = [...newStr].join('')
-console.log(uni)
+// console.log(uni)
+
+
+// find the first non repeating character
+
+function firstNonRepeating(str){
+    const obj = {}
+    for(let char of str){
+        if(obj[char]){
+            obj[char] += obj[char]
+        }else{
+            obj[char] = 1
+        }
+    }
+    for(let char of str){
+        if(obj[char]=== 1){
+            return char
+        }
+    }
+}
+
+// console.log(firstNonRepeating("spsprogramming"))
+
+// Find a triplet in an array that sums up to a given value
+const input = [1, 5,2,4, 45, 6, 10, 10];
+const sum = 15
+
+function tripletSum(arr,sum){
+    
+    for(let i=0;i<arr.length;i++){
+        let x = sum - arr[i] -arr[i+1]
+        for(let j = i+2; j<arr.length; j++){
+            if(x == arr[j]){
+                return [arr[i],arr[i+1],arr[j]]
+            }
+
+        }
+    }
+}
+
+console.log(tripletSum(input,sum))
+
+
+// write a function in JavaScript to get the current date in the format “YYYY-MM-DD”?
+
+function yyyyMMDD(currentDate){
+    const day = currentDate.getDay();
+    const rawMonth = currentDate.getMonth() + 1;
+    const month = rawMonth < 10 ? `0${rawMonth}` : rawMonth 
+    const year = currentDate.getFullYear();
+    return `${year}-${month}-${day}`
+}
+
+// console.log(yyyyMMDD(new Date()))
+
+
+// string compression
+
+function stringCompression(str){
+    const strArr = str.split('')
+    console.log('str',strArr)
+    let count = 0;
+    let compStr = ''
+    for(let i=0;i<strArr.length;i++){
+        if(strArr[i] === strArr[i+1]){
+            count++;
+        }else{
+            compStr += strArr[i]+(count+1)
+            count = 0
+        }
+    }
+    console.log(compStr)
+    return compStr
+}
+
+const stringaa = 'aaabcccdda'
+
+// stringCompression(stringaa)
+
+// ? fibonacci series
+
+function getFibonacciSeries(n){
+    if(!n) return []
+    const first = 0;
+    const second = 1;
+    if(n == 1) return [first]
+    const fibSeries = [first,first+second]
+    for(let i = 2;i<n;i++){
+        const sum = fibSeries[fibSeries.length-2] + fibSeries[fibSeries.length-1] 
+        fibSeries.push(sum)
+    }
+    return fibSeries
+}
+
+console.log(getFibonacciSeries(10))
+
 
 
 
