@@ -231,7 +231,85 @@ function getFibonacciSeries(n){
     return fibSeries
 }
 
-console.log(getFibonacciSeries(10))
+// console.log(getFibonacciSeries(10))
+
+function createPattern(n){
+    let str = ""
+    for(let i=0;i<n;i++){
+        for(let j = 0;j<=i;j++){
+            str += "* "
+        }
+        str += '\n'
+    }
+    return str
+}
+
+// console.log(createPattern(5))
+
+
+const arr1 = [2,4,"himanshu",5,2,"himanshu",59,48,89]
+const arr2 = [{id:1,name:"himanshu"},{id:2,name:"vinay"},{id:19,name:"sheetal"},{id:67,name:"mehak"},{id:1,name:"himanshu"},{id:19,name:"sheetal"}]
+
+function removeDuplicates(arr){
+    const newArr = []
+    for(const item of arr){
+        if(typeof item === 'object'){
+            const index = newArr.findIndex(_=> _.id === item.id)
+            if(index === -1) newArr.push(item)
+        }else{
+            if(!newArr.includes(item)) newArr.push(item)
+        }
+    }
+    return newArr
+}
+
+// console.log(removeDuplicates(arr1))
+// console.log(removeDuplicates(arr2))
+
+// ? first non repeating character
+
+function firstNonRepChar(str){
+    const obj = {}
+    for(const char of str){
+        if(obj[char]){
+            obj[char] += obj[char]
+        }else{
+            obj[char] = 1
+        }
+    }
+    for(const char of str){
+        if(obj[char] == 1){
+            return char
+        }
+    }
+    return ("there is no non repeating char")
+}
+
+console.log(firstNonRepChar("himanimsasunhu"))
+
+
+/**
+ * There are two arrays with individual values. Write a JavaScript program to compute the sum of each individual index value in the given array.
+   Sample array :
+   * array1 = [1,0,2,3,4];
+   * array2 = [3,5,6,7,8,13];
+   * Expected Output : [4, 5, 8, 10, 12, 13]
+ */
+
+function sumOfTwoArray(a1,a2){
+    const length = a1.length > a2.length ? a1.length : a2.length
+    const sumOfArr = []
+    for(let i =0;i<length;i++){
+        if(a1[i] && a2[i]){
+            sumOfArr[i] = a1[i] + a2[i]
+        }else{
+            sumOfArr[i] = a1[i] ? a1[i] : a2[i]
+        }
+    }
+    return sumOfArr
+}
+
+console.log(sumOfTwoArray([1,0,2,3,4,9,89],[3,5,6,7,8,13]))
 
 
 
