@@ -128,3 +128,8 @@ Promise.myRace = function(promises){
 Promise.myRace([promise1,promise2,promise3]).then(res=> console.log('res my race',res)).catch(err=> console.log('err my race',err))
 Promise.race([promise1,promise2,promise3]).then(res=> console.log('res race',res)).catch(err=> console.log('err race',err))
 
+
+let btn = new ButtonConfig(null)
+
+
+
